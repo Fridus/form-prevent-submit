@@ -4,8 +4,9 @@ import $ from 'jquery'
 const preventSubmit = function (form, options = {}) {
   const $form = $(form)
   const config = {
-    loadingClass: 'loading',
+    disableButton: true,
     disabledClass: 'disabled',
+    loadingClass: 'loading',
     ...options
   }
   let $btnSubmit = $('button[type="submit"]', $form)
@@ -27,10 +28,14 @@ const preventSubmit = function (form, options = {}) {
     }
 
     $btnSubmit.addClass(config.loadingClass)
+    if (config.disableButton) {
+      $btnSubmit.prop({ disabled: true })
+    }
 
     $form.resetPrevent = function () {
       $form.data('formIsSubmit', false)
       $btnSubmit.removeClass(config.loadingClass)
+      $btnSubmit.prop({ disabled: false })
     }
 
     $form.data('formPreventSubmit', $form)

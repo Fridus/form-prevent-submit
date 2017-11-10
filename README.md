@@ -11,8 +11,9 @@ npm i -S form-prevent-submit
 
 ## Options
 
-- `loadingClass` - (Default `loading`) Class added on submit on the button
+- `disableButton` - (Default `true`) Disable the submit button
 - `disabledClass` - (Default `disabled`) Prevent if button has this class
+- `loadingClass` - (Default `loading`) Class added on submit on the button
 
 ## Usage
 
